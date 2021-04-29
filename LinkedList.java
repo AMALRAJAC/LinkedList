@@ -45,6 +45,16 @@ class LinkedList {
             return;
         }
     }
+    public void insertDataAtLast(int data) {
+        Node node = new Node();
+        node.data = data;
+        node.nextNode = null;
+        Node tempNode = this.head;
+        while (tempNode.nextNode != null) {
+            tempNode = tempNode.nextNode;
+        }
+        tempNode.nextNode = node;
+    }
     public void print() {
         if (this.head == null) {
             return;
@@ -63,11 +73,11 @@ class LinkedList {
         LinkedList ls = new LinkedList();
 
         System.out.println("add data at the frond :");
-        ls.insert(70);
+        ls.insert(56);
         ls.print();
-        ls.insertDataAtFrond(30);
+        ls.insertDataAtLast(30);
         ls.print();
-        ls.insertDataAtFrond(56);
+        ls.insertDataAtLast(70);
         ls.print();
 
 
