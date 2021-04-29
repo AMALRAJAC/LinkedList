@@ -1,3 +1,4 @@
+import java.util.Collections;
 
 class LinkedList {
     static private Node head;
@@ -19,6 +20,7 @@ class LinkedList {
             tempNode = tempNode.nextNode;
         }
         tempNode.nextNode = node;
+        sortList();
     }
 
     public void printDataInLinkedList() {
@@ -53,19 +55,30 @@ class LinkedList {
         Node node = new Node();
         node.data = data;
         node.nextNode = null;
-        Node current=this.head;
-        Node previous=null;
-        while (current!=null){
-            previous=current;
-            current=current.nextNode;
-            if(current.data==searchValue){
-                System.out.println(searchValue+" found");
-                break;
+        Node current = this.head;
+        Node previous = null;
+        if(head.data==searchValue){
+            System.out.println(searchValue+" found");
+            node.nextNode = current.nextNode;
+            current.nextNode=node;
+            sortList();
+            printDataInLinkedList();
+        }else {
+
+            while (current != null) {
+                previous = current;
+                current = current.nextNode;
+                if (current.data == searchValue) {
+                    System.out.println(searchValue + " found");
+                    break;
+                }
             }
+
+            node.nextNode = current.nextNode;
+            previous.nextNode.nextNode = node;
+            sortList();
+            printDataInLinkedList();
         }
-        node.nextNode = current.nextNode;
-        previous.nextNode.nextNode = node;
-        printDataInLinkedList();
     }
     public int size(){
         int count=0;
@@ -91,5 +104,32 @@ class LinkedList {
         previous.nextNode=current.nextNode;
         printDataInLinkedList();
 
+    }
+    public void sortList() {
+        //Node current will point to head
+        Node current = this.head, previous = null;
+        int temp;
+
+        if(this.head == null) {
+            return;
+        }
+        else {
+            while(current != null) {
+                //Node index will point to node next to current
+                previous = current.nextNode;
+
+                while(previous != null) {
+                    //If current node's data is greater than index's node data, swap the data between them
+                    if(current.data > previous.data) {
+                        temp = current.data;
+                        current.data = previous.data;
+                        previous.data = temp;
+                    }
+                    previous = previous.nextNode;
+                }
+                current = current.nextNode;
+            }
+        }
+        printDataInLinkedList();
     }
 }
