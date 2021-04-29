@@ -78,6 +78,15 @@ class LinkedList {
             return;
         }
     }
+    public void popLast() {
+        Node current = this.head;
+        Node previous = null;
+        while (current.nextNode!=null) {
+            previous = current;
+            current = current.nextNode;
+        }
+        previous.nextNode= null;
+    }
     public void print() {
         if (this.head == null) {
             return;
@@ -102,7 +111,7 @@ class LinkedList {
         ls.print();
         ls.insert(70);
         ls.print();
-        ls.pop();
+        ls.popLast();
         ls.print();
 
 
