@@ -14,6 +14,9 @@ public class linkedListTest {
 
         assertEquals(true,singly.search(30));
         singly.addData(40,30);
+        assertEquals(4,singly.size());
+        singly.pop(40);
+        assertEquals(3,singly.size());
 
     }
 

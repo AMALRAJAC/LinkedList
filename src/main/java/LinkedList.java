@@ -67,5 +67,29 @@ class LinkedList {
         previous.nextNode.nextNode = node;
         printDataInLinkedList();
     }
+    public int size(){
+        int count=0;
+        Node current=this.head;
+        while(current!=null){
+            current=current.nextNode;
+            count++;
+        }
+        return count;
 
+    }
+    public void pop(int searchValue){
+        Node current=this.head;
+        Node previous=null;
+        while (current!=null){
+            previous=current;
+            current=current.nextNode;
+            if(current.data==searchValue){
+                System.out.println(searchValue+" found");
+                break;
+            }
+        }
+        previous.nextNode=current.nextNode;
+        printDataInLinkedList();
+
+    }
 }
