@@ -13,6 +13,8 @@ public class linkedListTest {
         singly.insertDataInToLinkedList(70);
 
         assertEquals(true,singly.search(30));
+        singly.addData(40,30);
+
     }
 
 

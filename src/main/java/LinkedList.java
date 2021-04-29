@@ -49,4 +49,23 @@ class LinkedList {
         }
         return false;
     }
+    public void addData(int data, int searchValue){
+        Node node = new Node();
+        node.data = data;
+        node.nextNode = null;
+        Node current=this.head;
+        Node previous=null;
+        while (current!=null){
+            previous=current;
+            current=current.nextNode;
+            if(current.data==searchValue){
+                System.out.println(searchValue+" found");
+                break;
+            }
+        }
+        node.nextNode = current.nextNode;
+        previous.nextNode.nextNode = node;
+        printDataInLinkedList();
+    }
+
 }
