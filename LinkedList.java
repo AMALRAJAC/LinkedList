@@ -70,6 +70,14 @@ class LinkedList {
         node.nextNode = current;
         previous.nextNode = node;
     }
+    public void pop() {
+        Node node;
+        if (head != null) {
+            node = head;
+            head = node.nextNode;
+            return;
+        }
+    }
     public void print() {
         if (this.head == null) {
             return;
@@ -90,9 +98,11 @@ class LinkedList {
         System.out.println("add data at the frond :");
         ls.insert(56);
         ls.print();
+        ls.insert(30);
+        ls.print();
         ls.insert(70);
         ls.print();
-        ls.insertDataIntoAnyPosition(30,1);
+        ls.pop();
         ls.print();
 
 
